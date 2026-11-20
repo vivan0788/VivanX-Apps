@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Admin panel ko search engines se hide rakhne ke liye
+Disallow: /admin
+
+Sitemap: https://vivanx-apps.vercel.app/sitemap.xml
