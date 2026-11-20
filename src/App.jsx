@@ -45,13 +45,13 @@ import {
 // ==========================================
 const INITIAL_APPS = [
   {
-    id: 'vivanx-utils',
-    name: 'VivanX Utility Suite',
-    packageName: 'com.vivanx.utilitysuite',
+    id: 'gb-whatsapp',
+    name: 'GB Whatsapp',
+    packageName: 'com.gbwhatsapp-25.8.67.apk',
     version: '2.4.0',
-    size: '18.4 MB',
+    size: '99.18 MB',
     sizeBytes: 19293798,
-    category: 'Utilities',
+    category: 'Social Media',
     rating: 4.9,
     minAndroid: 'Android 8.0+',
     updatedDate: 'Nov 15, 2026',
@@ -60,8 +60,8 @@ const INITIAL_APPS = [
     icon: '⚡',
     iconBg: 'from-blue-600 to-indigo-600',
     developer: 'VivanX Xenon',
-    apkUrl: 'https://github.com/vivanx/apps/releases/download/v2.4.0/vivanx-utility-v2.4.0.apk',
-    sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855',
+    apkUrl: 'https://github.com/vivan0788/VivanX-Apps/releases/download/Whatsapp/com.gbwhatsapp-25.8.67.apk',
+    sha256: '7e86cf450035087428b503924f9c057b2ca90dc545cade212eb727a573346443',
     description: 'The ultimate system optimization and battery management utility built specifically for Android power users. Boost performance, clean storage cache, monitor live thermal throttling, and customize deep system parameters without root access.',
     features: [
       'One-tap RAM clean and background task manager',
@@ -76,7 +76,7 @@ const INITIAL_APPS = [
       'System Overlay (For floating thermal status widget)'
     ],
     screenshots: [
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80',
+      'https://share.google/H2LeUW8T4YMiF3OrJ',
       'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80',
       'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80'
     ],
