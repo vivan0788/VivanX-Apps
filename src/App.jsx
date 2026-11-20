@@ -265,8 +265,8 @@ const INITIAL_APPS = [
 ];
 
 // Constants for Community Links (Configurable placeholders)
-const WHATSAPP_COMMUNITY_URL = 'https://whatsapp.com/channel/0029VaVivanXAppsOfficial';
-const TELEGRAM_COMMUNITY_URL = 'https://t.me/VivanXAppsOfficial';
+const WHATSAPP_COMMUNITY_URL = 'https://whatsapp.com/channel/0029VbE3zAxDjiOaxdi5uu1T';
+const TELEGRAM_COMMUNITY_URL = 'https://t.me/gbwhatsappofficial';
 
 export default function App() {
   // Theme State
@@ -387,12 +387,12 @@ export default function App() {
   // Admin Login Handle
   const handleAdminLogin = (e) => {
     e.preventDefault();
-    if (adminPasswordInput === 'vivanx2026' || adminPasswordInput === 'admin') {
+    if (adminPasswordInput === '@Avinash2009' || adminPasswordInput === 'admin') {
       setIsAdminLoggedIn(true);
       setAdminLoginError('');
       showToast('Authenticated as Administrator', 'success');
     } else {
-      setAdminLoginError('Invalid Administrator credentials. Hint: use "vivanx2026"');
+      setAdminLoginError('Invalid Administrator credentials. Hint: use "vivanx****"');
     }
   };
 
