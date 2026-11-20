@@ -59,7 +59,7 @@ const INITIAL_APPS = [
     featured: true,
     icon: '⚡',
     iconBg: 'from-blue-600 to-indigo-600',
-    developer: 'VivanX Software Labs',
+    developer: 'VivanX Xenon',
     apkUrl: 'https://github.com/vivanx/apps/releases/download/v2.4.0/vivanx-utility-v2.4.0.apk',
     sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855',
     description: 'The ultimate system optimization and battery management utility built specifically for Android power users. Boost performance, clean storage cache, monitor live thermal throttling, and customize deep system parameters without root access.',
@@ -1184,7 +1184,7 @@ export default function App() {
                       onChange={(e) => setAdminPasswordInput(e.target.value)}
                       className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-slate-100 text-sm outline-none focus:border-blue-500"
                     />
-                    <p className="text-[11px] text-slate-500 mt-1">Sandbox Key: <code className="text-blue-400">vivanx2026</code></p>
+                    <p className="text-[11px] text-slate-500 mt-1">Sandbox Key: <code className="text-blue-400">vivanx****</code></p>
                   </div>
 
                   {adminLoginError && (
@@ -1489,60 +1489,80 @@ export default function App() {
             </div>
 
             <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                showToast('Thank you! Your message has been sent.', 'success');
-                e.target.reset();
-              }}
-              className={`p-6 rounded-2xl border space-y-4 ${darkMode ? 'bg-slate-900/80 border-slate-800' : 'bg-white border-slate-200'}`}
-            >
-              <div>
-                <label className="block text-xs font-semibold mb-1">Your Name</label>
-                <input
-                  type="text"
-                  required
-                  placeholder="John Doe"
-                  className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-sm outline-none focus:border-blue-500"
-                />
-              </div>
+  onSubmit={async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    formData.append("access_key", "c8eef1db-ba51-4614-9198-75523cd9a06e");
 
-              <div>
-                <label className="block text-xs font-semibold mb-1">Email Address</label>
-                <input
-                  type="email"
-                  required
-                  placeholder="developer@vivanx.com"
-                  className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-sm outline-none focus:border-blue-500"
-                />
-              </div>
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+      const data = await response.json();
+      if (data.success) {
+        showToast('Thank you! Your message has been sent.', 'success');
+        e.target.reset();
+      } else {
+        showToast('Failed to send message. Please try again.', 'error');
+      }
+    } catch (error) {
+      showToast('Network error. Please try again.', 'error');
+    }
+  }}
+  className={`p-6 rounded-2xl border space-y-4 ${darkMode ? 'bg-slate-900/80 border-slate-800' : 'bg-white border-slate-200'}`}
+>
+  <div>
+    <label className="block text-xs font-semibold mb-1">Your Name</label>
+    <input
+      type="text"
+      name="name"
+      required
+      placeholder="John Doe"
+      className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-sm outline-none focus:border-blue-500"
+    />
+  </div>
 
-              <div>
-                <label className="block text-xs font-semibold mb-1">Inquiry Topic</label>
-                <select className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-sm outline-none focus:border-blue-500">
-                  <option>General Support</option>
-                  <option>APK Submission Request</option>
-                  <option>DMCA / Copyright Claim</option>
-                  <option>Security Vulnerability Disclosure</option>
-                </select>
-              </div>
+  <div>
+    <label className="block text-xs font-semibold mb-1">Email Address</label>
+    <input
+      type="email"
+      name="email"
+      required
+      placeholder="developer@vivanx.com"
+      className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-sm outline-none focus:border-blue-500"
+    />
+  </div>
 
-              <div>
-                <label className="block text-xs font-semibold mb-1">Message</label>
-                <textarea
-                  rows="4"
-                  required
-                  placeholder="Describe your inquiry..."
-                  className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-sm outline-none focus:border-blue-500"
-                />
-              </div>
+  <div>
+    <label className="block text-xs font-semibold mb-1">Inquiry Topic</label>
+    <select name="topic" className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-sm outline-none focus:border-blue-500">
+      <option>General Support</option>
+      <option>APK Submission Request</option>
+      <option>DMCA / Copyright Claim</option>
+      <option>Security Vulnerability Disclosure</option>
+    </select>
+  </div>
 
-              <button
-                type="submit"
-                className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-lg shadow-blue-600/30"
-              >
-                Send Message
-              </button>
-            </form>
+  <div>
+    <label className="block text-xs font-semibold mb-1">Message</label>
+    <textarea
+      name="message"
+      rows="4"
+      required
+      placeholder="Describe your inquiry..."
+      className="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-sm outline-none focus:border-blue-500"
+    />
+  </div>
+
+  <button
+    type="submit"
+    className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-lg shadow-blue-600/30"
+  >
+    Send Message
+  </button>
+</form>
+  
           </div>
         )}
 
